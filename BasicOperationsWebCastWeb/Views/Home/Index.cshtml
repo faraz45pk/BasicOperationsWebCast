@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Demo Button</h2>
+    <p class="lead">
+        <b>Basic Operation with PnP HOL</b>
+        Learn how to get started updating existing code
+    </p>
+    <p>
+        <a id="thebutton" class="btn btn-primary btn-lg" href="#">
+            Execute the example
+        </a>
+    </p>
+</div>
+
+@section Scripts {
+             
+    <script type="text/javascript">
+        $(function () {
+            $("#thebutton").on("click",
+                function (e) {
+                e.preventDefault();
+                $.get("/Home/DoStuff").done(function () {
+                    alert("Completed");
+                });
+            });
+        });
+    </script>
+}
